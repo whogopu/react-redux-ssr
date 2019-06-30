@@ -3,7 +3,7 @@ import express from 'express'
 import renderer from './helpers/renderer'
 import { matchRoutes } from 'react-router-config'
 import createStore from './helpers/create-store'
-import Routes from './client/components/Routes';
+import Routes from './client/Routes';
 
 const app = express()
 

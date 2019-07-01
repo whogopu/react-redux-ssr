@@ -1,13 +1,20 @@
-import axios from 'axios'
-
-export const URL = 'http://react-ssr-api.herokuapp.com'
-
 export const FETCH_USERS = 'FETCH_USERS'
-export const fetchUsers = () => async distach => {
-	const res = await axios.get(`${URL}/users`)
+export const FETCH_CURRENT_USERS = 'FETCH_CURRENT_USERS'
+
+export const fetchUsers = () => async (distach, getState, api) => {
+	const res = await api.get('/users')
 
 	distach({
 		type: FETCH_USERS,
+		payload: res
+	})
+}
+
+export const fetchCurrentUser = () => async (distach, getState, api) => {
+	const res = await api.get('/current_user')
+
+	distach({
+		type: FETCH_CURRENT_USERS,
 		payload: res
 	})
 }

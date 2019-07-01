@@ -8,8 +8,17 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { renderRoutes } from 'react-router-config'
 import reducers from '../client/reducers'
+import Axios from 'axios';
 
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk))
+const axiosInstance = Axios.create({
+	baseURL: '/api'
+})
+
+const store = createStore(
+	reducers,
+	window.INITIAL_STATE,
+	applyMiddleware(thunk.withExtraArgument(axiosInstance))
+)
 
 ReactDOM.hydrate(
 	<Provider store={store}>

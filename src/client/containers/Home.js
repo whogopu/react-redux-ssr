@@ -2,9 +2,9 @@ import React from 'react';
 
 const Home = () => {
 	return (
-		<div>
-			<div>My home Component</div>
-			<button onClick={()=> console.log('clicked')}>Click me</button>
+		<div className="center-align" style={{marginTop: "100px"}}>
+			<h4>Welcome</h4>
+			<p>Check out these awesome features</p>
 		</div>
 	)
 }
